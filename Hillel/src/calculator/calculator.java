@@ -16,8 +16,28 @@ public class calculator {
         System.out.println("Please input second number: ");
         double secondNumber = scannerObject.nextDouble();
 
-        System.out.println("This's first number: " + firstNumber);
-        System.out.println("This's second number: " + secondNumber);
+        System.out.println("This's first number: " + summnumbers(firstNumber, secondNumber));
+        System.out.println("Summ is: " + summnumbers(firstNumber, secondNumber));
+        System.out.println("Difference is: " + minusnumbers(firstNumber, secondNumber));
+        System.out.println("Multiplication is: " + multiplicationnumbers(firstNumber, secondNumber));
+        System.out.println("Division is: " + divisionnumbers(firstNumber, secondNumber));
+
     }
 
+
+    public static double summnumbers(double firstNumber, double secondNumber) {
+        return firstNumber + secondNumber;
+    }
+
+    public static double minusnumbers(double firstNumber, double secondNumber) {
+        return firstNumber - secondNumber;
+    }
+
+    public static double multiplicationnumbers(double firstNumber, double secondNumber) {
+        return firstNumber * secondNumber;
+    }
+
+    public static double divisionnumbers(double firstNumber, double secondNumber) {
+        return firstNumber / secondNumber;
+    }
 }
