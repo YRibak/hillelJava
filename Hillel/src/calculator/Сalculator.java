@@ -4,7 +4,7 @@ package calculator;
 import java.util.Scanner;
 
 
-public class calculator {
+public class Сalculator {
 
     public static void main(String[] args) {
 
