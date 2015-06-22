@@ -21,7 +21,7 @@ public class calculator {
         System.out.println("Difference is: " + minusnumbers(firstNumber, secondNumber));
         System.out.println("Multiplication is: " + multiplicationnumbers(firstNumber, secondNumber));
         if (secondNumber == 0) {
-            System.out.println("Division by 0");
+            System.out.println("Exception: Division by 0");
         } else {
             System.out.println("Division is: " + divisionnumbers(firstNumber, secondNumber));
         }
