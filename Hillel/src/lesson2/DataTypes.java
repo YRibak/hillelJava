@@ -66,7 +66,7 @@ public class DataTypes {
         }
         System.out.println("End");
 
-        double dO  = 0.8;
+        double dO  = 0.8; //
         double dT  = 0.8;
         double dF  = 0.8;
         double dS  = dT+dF;
