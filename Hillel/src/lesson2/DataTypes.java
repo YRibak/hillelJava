@@ -15,5 +15,7 @@ public class DataTypes {
         float f = 3.3F;
         double dou = 3.3;
 
+        String str = "Hello";
+
     }
 }
