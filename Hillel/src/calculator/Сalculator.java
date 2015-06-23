@@ -29,10 +29,12 @@ public class Сalculator {
 
 
     public static double summnumbers(double firstNumber, double secondNumber) {
+
         return firstNumber + secondNumber;
     }
 
     public static double minusnumbers(double firstNumber, double secondNumber) {
+
         return firstNumber - secondNumber;
     }
 
