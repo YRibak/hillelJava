@@ -6,6 +6,7 @@ package lesson2;
 public class DataTypes {
 
     public static void main(String[] args) {
+
 //        boolean b = false;
 //        byte bYTE = 2;
 //        int in = 2;
@@ -70,7 +71,7 @@ public class DataTypes {
         double dT  = 0.8;
         double dF  = 0.8;
         double dS  = dT+dF;
-        System.out.println(Math.abs(dO - dS)<0.0001);   // 0.0001
+        System.out.println(Math.abs(dO - dS)<0.0001);   // 0.0001 степень погрешности
 }
 
     }
