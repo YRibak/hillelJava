@@ -7,15 +7,15 @@ import java.util.Scanner;
  */
 public class Envelope {
     public static void main(String[] args) {
-        System.out.println("Please write, please, size of your envelope: ");
+        System.out.println("Please, write size of your envelope: ");
         Scanner scanner = new Scanner(System.in);
         int envSize = scanner.nextInt();
-        
+
         for (int i = 0; i < envSize; i++) {
 
             for (int j = 0; j < envSize; j++) {
                 char str;
-                if (i == j || j == (envSize -1 - i)) {
+                if (i == j || j == (envSize -1 - i)) { // главная и побочная диагонали матрицы
                     str = '*';
                 } else if (i == 0 || i ==envSize - 1) {
                     str = '*';
