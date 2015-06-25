@@ -11,18 +11,18 @@ public class Envelope {
         Scanner scanner = new Scanner(System.in);
         int envSize = scanner.nextInt();
         
-        for (int i = 1; i <= envSize; i++) {
+        for (int i = 0; i < envSize; i++) {
 
-            for (int j = 1; j <=envSize; j++) {
-                String str;
-                if (i == j || j == (envSize+1-i)) {
-                    str = "*";
-                } else if (i == 1 || i ==envSize) {
-                    str = "*";
-                } else if (j == 1 || j ==envSize) {
-                    str = "*";
+            for (int j = 0; j < envSize; j++) {
+                char str;
+                if (i == j || j == (envSize -1 - i)) {
+                    str = '*';
+                } else if (i == 0 || i ==envSize - 1) {
+                    str = '*';
+                } else if (j == 0 || j ==envSize - 1) {
+                    str = '*';
                 } else {
-                    str = " ";
+                    str = ' ';
                 }
                 System.out.print(str);
             }
