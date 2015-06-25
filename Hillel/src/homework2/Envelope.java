@@ -12,12 +12,14 @@ public class Envelope {
         int envSize = scanner.nextInt();
         
         for (int i = 1; i <= envSize; i++) {
-            System.out.print("*");
+
             for (int j = 1; j <=envSize; j++) {
                 String str;
                 if (i == j || j == (envSize+1-i)) {
                     str = "*";
-                } else if (i == 1 || i ==envSize){
+                } else if (i == 1 || i ==envSize) {
+                    str = "*";
+                } else if (j == 1 || j ==envSize) {
                     str = "*";
                 } else {
                     str = " ";
@@ -25,7 +27,7 @@ public class Envelope {
                 System.out.print(str);
             }
 
-            System.out.println("*");
+            System.out.print("\n");
 
         }
     }
