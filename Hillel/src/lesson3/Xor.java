@@ -18,17 +18,33 @@ public class Xor {
      * 0110
      */
     // для того если надо что-то доделать можно оставлять такие коменты, они напомнят
-//FIXME
+    //FIXME
     //TODO implement
     //---------------------------
+    //return null; ---так делаем в методах что бы дали скомпилироваться если они пустые (без логики внутри (без кода))
+
+    /**
+     * массивы
+     * int[] a = new int[5];
+     *
+     */
+
+
     public static void main(String[] args) {
+        //тренировка массивы
+        int[] a = new int[5]; // создали пустой массив с 5-ю элементами от 0 до 4
+        //выведем его
+        for (int i=0; i<5;i++){
+            System.out.println(a[i]); //если сразу его вывести он вернет 0 ими пустой массив инициализируется
+        }
+
         String message = "hello";
         char kay = 'a';
     }
 
     public static String encode(String message, char key){
 
-
+    return null;
 
     }
 }
