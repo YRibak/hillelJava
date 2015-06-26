@@ -10,6 +10,7 @@ public class Cycle {
             System.out.println(i);
             ++i;
         }
+
        //-----------------
         int k = 0;
         do {
