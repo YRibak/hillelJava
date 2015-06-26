@@ -40,15 +40,21 @@ public class Xor {
         }
 //заполняем второй элемент значением 100
         a[2] = 100;
-  // String [] -массив стрингов
+        // a  = new int[10]; пересоздат в этом месте новый массив с 10 элементами
+  // String [] a = new String[количество] -массив стрингов
+        // или так String[] a = ("w", "S", "a');
 
         String message = "hello";
         char kay = 'a';
     }
 
-    public static String encode(String message, char key){
+    public static String encode(String message, char key) {
 
-    return null;
+        return null;
+    }
+    public static String[] expandArray(String[] inArray, int expandd) {
+       return null;
 
     }
 }
+// ДЗ реализовать функцию добавления элементов в массив
