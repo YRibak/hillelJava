@@ -20,7 +20,10 @@ public class Functions {
         double sum = first + second;
         return sum;
     }
-
+    // перегрузка метода add
+    public static double add (int second, double thr)  {
+        return 1000000;
+    }
     public static void printHello() {
         System.out.println("Hello");
     }
