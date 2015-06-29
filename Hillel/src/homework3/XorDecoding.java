@@ -11,7 +11,7 @@ public class XorDecoding {
         System.out.print("Input string: ");
         String text;
         text = scanner.nextLine();
-        System.out.print("Input kay-string: ");
+        System.out.print("Input key-string: ");
         String key;
         key = scanner.nextLine();
 
