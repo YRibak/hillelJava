@@ -9,5 +9,10 @@ public class StudentApp {
         System.out.println(students.id);
         students.id = 99;
         System.out.println(students.id);
+
+        Students students2 = new Students();
+        students2.id = 100;
+        students2.come();
+
     }
 }
