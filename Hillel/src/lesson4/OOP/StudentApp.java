@@ -5,6 +5,9 @@ package lesson4.OOP;
  */
 public class StudentApp {
     public static void main(String[] args) {
-        Students student1 = new Students();
+        Students students = new Students();
+        System.out.println(students.id);
+        students.id = 99;
+        System.out.println(students.id);
     }
 }

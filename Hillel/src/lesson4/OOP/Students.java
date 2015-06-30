@@ -8,4 +8,5 @@ public class Students {
     public int id;           // = 0;
     public String surname;   // = null
     public int[] marks;      // =null
+    
 }
