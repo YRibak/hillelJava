@@ -35,10 +35,10 @@ public class Element {
 
     public int getValue() {
         int result =0;
-        int k = 1;
+        int digit = 1;
         for(int i =0; i<size; i++){
-            result += value[i] * k;
-            k *=10;
+            result += value[i] * digit;
+            digit *=10;
         }
         return result * getSign();
     }
