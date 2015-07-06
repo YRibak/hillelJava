@@ -4,7 +4,7 @@ package homework5.intContainer;
  * Created by yura on 06.07.15.
  */
 public class IntContainer {
-    int[] intNum = new int[1];
+    int[] intArray = new int[1];
     int size =1;
 
     public IntContainer(){
@@ -12,35 +12,34 @@ public class IntContainer {
     }
 
     public IntContainer(int inNum){
-        this.intNum[0] =inNum;
+        this.intArray[0] =inNum;
     }
 
     public void setIntNum(int inNum) {
-
-        this.intNum = incArray();
-        this.intNum[size-1] = inNum;
+        this.intArray = incArray();
+        this.intArray[size-1] = inNum;
     }
 
     private int[] incArray(){
-        size = intNum.length+1;
+        size = intArray.length+1;
         int[] tmpArray = new int[size];
         for(int i=0; i<size-1; i++){
-            tmpArray[i] = intNum[i];
+            tmpArray[i] = intArray[i];
         }
         return tmpArray;
     }
 
     public int getIntNum(int id) {
-        return intNum[id];
+        return intArray[id];
     }
 
     public int[] getIntNum() {
-        return intNum;
+        return intArray;
     }
 
     public boolean contains(int inNum){
         for (int i = 0; i<size; i++){
-            if(intNum[i]==inNum){
+            if(intArray[i]==inNum){
                 return true;
             }
         }
@@ -54,14 +53,14 @@ public class IntContainer {
     private  void fastSort(int start, int end) {
         int i = start;
         int j = end;
-        int x = intNum[(start+end)/2];
+        int x = intArray[(start+end)/2];
         do {
-            while(intNum[i] < x) ++i;
-            while(intNum[j] > x) --j;
+            while(intArray[i] < x) ++i;
+            while(intArray[j] > x) --j;
             if(i <= j){
-                int temp = intNum[i];
-                intNum[i] = intNum[j];
-                intNum[j] = temp;
+                int temp = intArray[i];
+                intArray[i] = intArray[j];
+                intArray[j] = temp;
                 i ++ ; j --;
             }
         } while(i <= j);
