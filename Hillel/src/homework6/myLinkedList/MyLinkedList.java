@@ -1,19 +1,16 @@
 package homework6.myLinkedList;
-
-import lesson4.Arrays;
-
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 
 /**
  * Created by yura on 12.07.15.
  */
 public class MyLinkedList implements MyList {
-    private int size;
-    private Node prev;
-    private Node first;
+    int size;
+    Node prev;
+    Node first;
 
 
     public MyLinkedList() {
@@ -52,6 +49,18 @@ public class MyLinkedList implements MyList {
 
     @Override
     public boolean retainAll(MyLinkedList c) {
+        Object[] collection = toArray(c);
+        MyLinkedList temp = null;
+        for(Object elem : collection){
+            if (!contains(elem)){
+                temp.add(elem);
+            }
+        }
+        if(temp != null){
+            clear();
+            addAll(temp);
+            return true;
+        }
         return false;
     }
 
@@ -97,7 +106,7 @@ public class MyLinkedList implements MyList {
     private Object[] toArray(MyLinkedList c){
         Object[] elem = new Object[this.size];
         int count = 0;
-        for (Node i=first; i!=null; i=i.next){
+        for (Node i=c.first; i!=null; i=i.next){
             elem[count] = i;
             count++;
         }
@@ -108,7 +117,6 @@ public class MyLinkedList implements MyList {
         for(Object elem : a){
             add(elem);
         }
-        //TODO
         return true;
     }
 
@@ -122,19 +130,27 @@ public class MyLinkedList implements MyList {
     }
 
     public MyIterator iterrator(){
-        return new MyIterator();
+        return new MyIterator(first);
     }
 }
 
 class MyIterator implements Iterator {
+    Node item = null;
+
+    public MyIterator(Node first) {
+        this.item = first;
+    }
 
     @Override
     public boolean hasNext() {
-        return true;
+        return  item.next != null;
     }
 
     @Override
     public Object next() {
-        return null;
+        Object temp;
+        temp = item;
+        item = item.next;
+        return temp;
     }
 }
