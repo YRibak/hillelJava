@@ -19,7 +19,9 @@ public class ColorApp {
         list.add(cyrcle);
         list.add(p);
 
-        System.out.println(list.getCommonPrice());
+        System.out.println("Total price " + list.getTotalPrice());
+        System.out.println("Total weight " + list.getTotalWeigth());
+        System.out.println("Total square " + list.getTotalSquire());
 
     }
 }

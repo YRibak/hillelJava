@@ -7,12 +7,29 @@ import java.util.ArrayList;
  */
 public class FigureList extends ArrayList{
 
-    public double getCommonPrice(){
+    public double getTotalPrice(){
         double commonPrice = 0;
         for (Object i : this){
             AbstractShape item = (AbstractShape) i;
-            commonPrice += item.consumption();
+            commonPrice += item.getPrice();
         }
         return commonPrice;
+    }
+    public double getTotalWeigth(){
+        double weight = 0;
+        for (Object i : this){
+            AbstractShape item = (AbstractShape) i;
+            weight += item.consumption();
+        }
+        return weight;
+    }
+
+    public double getTotalSquire(){
+        double square = 0;
+        for (Object i : this){
+            AbstractShape item = (AbstractShape) i;
+            square += item.getSquare();
+        }
+        return square;
     }
 }

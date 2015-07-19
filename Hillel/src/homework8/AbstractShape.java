@@ -12,7 +12,7 @@ abstract class AbstractShape {
 
     public abstract double getSquare();
 
-    double consumption(){
+    public double consumption(){
         return getSquare()*getColorProperties().getConsumption();
     }
 
