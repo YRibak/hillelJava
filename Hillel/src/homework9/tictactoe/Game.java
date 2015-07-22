@@ -10,6 +10,7 @@ import java.util.Arrays;
  * Created by VSulevskiy on 19.07.2015.
  */
 public class Game {
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new GameRunnable());
     }

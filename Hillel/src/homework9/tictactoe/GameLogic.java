@@ -5,7 +5,9 @@ package homework9.tictactoe;
  */
 public class GameLogic {
     //default
+
     private int[] field = new int[9];
+
     public AiGameStrategy aiGameStrategy;
 
     public boolean makeTurn(int position){
