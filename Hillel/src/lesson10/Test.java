@@ -1,5 +1,8 @@
 package lesson10;
 
+import java.util.EmptyStackException;
+import java.util.Stack;
+
 /**
  * Created by ITHILLEL2 on 24.07.2015.
  */
@@ -11,18 +14,18 @@ public class Test {
 
     }
     public static  boolean isCorrect(String string){
-        int i = 0;
-        for(char ch : string.toCharArray()){
-            if (ch ==')') {
-                i++;
-            } else if(ch =='('){
-                i--;
+        Stack stack = new Stack();
+        for (char ch : string.toCharArray()){
+            if (ch == '('){
+                stack.push(ch);
+            } else if (ch == ')'){
+               try {
+                   stack.pop();
+               } catch (EmptyStackException e){
+                   return false;
+               }
             }
-            if (i<0){
-                return false;
-            }
-
         }
-        return true;
+        return stack.isEmpty();
     }
 }
