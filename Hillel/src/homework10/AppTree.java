@@ -22,10 +22,10 @@ public class AppTree {
         System.out.println(tree.contains(1));
         System.out.println(tree.contains(22));
         System.out.println(tree.contains(23));
-        System.out.println(tree.maxSubTree(5));
-        System.out.println(tree.minSubTree(5));
-        System.out.println(tree.floor(5));
-        System.out.println(tree.ceiling(5));
+        System.out.println("I'm max element in sub tree towards element 5 " + tree.maxSubTree(5));
+        System.out.println(" I'm min element in sub tree towards element 5 " +tree.minSubTree(5));
+        System.out.println("I'm result of floor method:" + tree.floor(5));
+        System.out.println("I'm result of ceiling method: " + tree.ceiling(5));
 
 
     }
