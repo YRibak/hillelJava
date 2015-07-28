@@ -88,6 +88,7 @@ public class MyTreeSet {
         return startNode.getRight().getData();
     }
 
+
     public Object ceiling(Object o) {
         Node startNode = contains(o, root);
         return startNode.getLeft().getData();

@@ -28,6 +28,5 @@ public class AppTree {
         System.out.println("I'm result of ceiling method: " + tree.ceiling(5));
         System.out.println("Size of my tree: " + tree.getSize());
 
-
     }
 }
