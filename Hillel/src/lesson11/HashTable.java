@@ -54,5 +54,6 @@ public class HashTable {
     public static void main(String[] args) {
         System.out.println("hello".hashCode());
         System.out.println("privet".hashCode());
+        LinkedList list = new LinkedList();
     }
 }
