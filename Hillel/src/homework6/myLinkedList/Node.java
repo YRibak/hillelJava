@@ -4,12 +4,12 @@ package homework6.myLinkedList;
  * Created by yura on 12.07.15.
  */
 
-public class Node {
-    Object elem;
+public class Node <T>{
+    T elem;
     Node next;
 
 
-    public Node(Object o,Node next) {
+    public Node(T o,Node next) {
         this.elem = o;
         this.next = next;
     }
@@ -17,7 +17,7 @@ public class Node {
         return next;
     }
 
-    public Object getElem() {
+    public T getElem() {
         return elem;
     }
 }

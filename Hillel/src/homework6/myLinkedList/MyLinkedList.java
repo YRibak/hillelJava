@@ -1,4 +1,7 @@
 package homework6.myLinkedList;
+import homework5.students.Student;
+import lesson4.OOP.Students;
+
 import java.util.Iterator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
@@ -7,16 +10,16 @@ import java.util.function.Consumer;
 /**
  * Created by yura on 12.07.15.
  */
-public class MyLinkedList implements MyList {
+public class MyLinkedList <T> implements MyList <T>{
     int size;
     Node prev;
-    Node first;
+   public Node first;
 
 
     public MyLinkedList() {
     }
 
-    public boolean contains(Object o){
+    public boolean contains(T o){
         Node current = this.first;
         while (current != null){
             if(current.elem.equals(o)){
@@ -27,7 +30,7 @@ public class MyLinkedList implements MyList {
         return false;
     }
 
-    public boolean remove(Object o){
+    public boolean remove(T o){
         Node current = this.first;
         Node prev = null;
         while (current != null){
@@ -49,9 +52,9 @@ public class MyLinkedList implements MyList {
 
     @Override
     public boolean retainAll(MyLinkedList c) {
-        Object[] collection = toArray(c);
+        T[] collection = (T[])toArray(c);
         MyLinkedList temp = null;
-        for(Object elem : collection){
+        for(T elem : collection){
             if (!contains(elem)){
                 temp.add(elem);
             }
@@ -66,9 +69,9 @@ public class MyLinkedList implements MyList {
 
     @Override
     public boolean removeAll(MyLinkedList c) {
-        Object[] collection = toArray(c);
+        T[] collection = (T[])toArray(c);
         boolean rem = false;
-        for(Object elem : collection){
+        for(T elem : collection){
             if (!rem){
                 rem = remove(elem);
             }else{
@@ -80,8 +83,8 @@ public class MyLinkedList implements MyList {
 
     @Override
     public boolean containsAll(MyLinkedList c) {
-        Object[] collection = toArray(c);
-        for(Object elem : collection){
+       T[] collection = (T[]) toArray(c);
+        for(T elem : collection){
             if (contains(elem)){
                 return true;
             }
@@ -89,7 +92,7 @@ public class MyLinkedList implements MyList {
         return false;
     }
 
-    public boolean add(Object o) {
+    public boolean add(T o) {
         Node link = this.prev;
         Node newNode = new Node(o, null);
         if (link != null){
@@ -113,8 +116,8 @@ public class MyLinkedList implements MyList {
         return elem;
     }
     public boolean addAll(MyLinkedList c){
-        Object[] a = toArray(c);
-        for(Object elem : a){
+        T[] a = (T[])toArray(c);
+        for(T elem : a){
             add(elem);
         }
         return true;
@@ -143,12 +146,12 @@ class MyIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        return  item.next != null;
+        return  item != null;
     }
 
     @Override
-    public Object next() {
-        Object temp;
+    public  Node next() {
+        Node temp;
         temp = item;
         item = item.next;
         return temp;
