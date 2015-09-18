@@ -4,10 +4,13 @@ package homework19.dao.factory.mysql;
 
 import homework19.dao.businessobjects.Account;
 import homework19.dao.factory.AccountDao;
+import homework19.dao.factory.mysql.connectionsPool.PgConnectPool;
+import lesson8.LinkedList;
 
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.Collection;
+import java.util.Hashtable;
 
 /**
  * Created by VSulevskiy on 14.09.2015.
@@ -15,18 +18,17 @@ import java.util.Collection;
 public class DbAccountDao implements AccountDao {
     private static final String USERNAME = "testUser";
     private static final String PASSWORD = "test";
+    private Connection con = null;
+
+    public void getConnection() {
+        PgConnectPool pool = new PgConnectPool(20000L, "org.postgresql.Driver",
+                "jdbc:postgresql://localhost/test", USERNAME, PASSWORD);
+        con = (Connection)pool.checkOut();
+    }
 
     @Override
     public boolean insertAccount(Account account) {
-        Connection con = null;
-        try {
-            con = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost/test",
-                    USERNAME,
-                    PASSWORD);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        getConnection();
         PreparedStatement statement = null;
         try {
             statement = con.prepareStatement(
@@ -58,15 +60,8 @@ public class DbAccountDao implements AccountDao {
 
     @Override
     public boolean deleteAccount(Account account) {
-        Connection con = null;
-        try {
-            con = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost/test",
-                    USERNAME,
-                    PASSWORD);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+        getConnection();
         PreparedStatement statement = null;
         try {
             statement = con.prepareStatement(
@@ -96,24 +91,23 @@ public class DbAccountDao implements AccountDao {
 
     @Override
     public Account findAccount(long id) {
+        getConnection();
         String sqlQuery = "SELECT balance FROM test.account" +
                 " WHERE account_id = ?";
-        try (Connection con = DriverManager.getConnection(
-                "jdbc:postgresql://localhost/test",
-                USERNAME,
-                PASSWORD); PreparedStatement statement = con.prepareStatement(sqlQuery)) {
-            statement.setLong(1, id);
-            try(ResultSet resultSet = statement.executeQuery()){
+            try {
+                PreparedStatement statement = con.prepareStatement(sqlQuery);
+                statement.setLong(1, id);
+                ResultSet resultSet = statement.executeQuery();
                 resultSet.next();
                 Account account = new Account(id);
                 BigDecimal balance = resultSet.getBigDecimal(1);
                 account.setBalance(balance);
                 return account;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return null;
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+
     }
 
     @Override
@@ -121,10 +115,9 @@ public class DbAccountDao implements AccountDao {
         String sqlQuery = "UPDATE test.account" +
                 " SET balance = ?" +
                 " WHERE account_id = ?";
-        try (Connection con = DriverManager.getConnection(
-                "jdbc:postgresql://localhost/test",
-                USERNAME,
-                PASSWORD); PreparedStatement statement = con.prepareStatement(sqlQuery)) {
+        try {
+            getConnection();
+            PreparedStatement statement = con.prepareStatement(sqlQuery);
             statement.setBigDecimal(1, account.getBalance());
             statement.setLong(2, account.getId());
             statement.execute();
@@ -137,6 +130,10 @@ public class DbAccountDao implements AccountDao {
 
     @Override
     public Collection<Account> getAccounts() {
-        throw new UnsupportedOperationException("Please implement");
+//        Collection<Account> collection = new Hashtable<>();
+//        String sqlQuery = "Select "
+//        getConnection();
+        return null;
+
     }
 }
